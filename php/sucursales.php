@@ -10,12 +10,22 @@
 </head>
 <?php include '../html/menu.php' ?>
 <body>
+
+    <!-- Navigation -->
+    
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+  
+
+
+
 <section class="invoice">
       <!-- title row -->
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> TAQUERIA LA ESTRELLA
+            <i class="fa fa-globe"></i> TAQUERIA EL PAPA
             <small class="pull-right">Date: 15/11/2016</small>
           </h2>
         </div>
@@ -74,11 +84,6 @@
       </div>
       <!-- /.row -->
 
-   
-      <!-- /.row -->
-
-      <!-- this row will not appear when printing -->
-    </section>
 <?php include '../html/import_js.html' ?>
 </body>
 </html>
