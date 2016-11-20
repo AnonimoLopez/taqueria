@@ -9,7 +9,7 @@
 	<?php include '../html/import_css.html' ?>
 </head>
 <?php include '../html/menu.php' ?>
-<body>
+<body background="red">
 <div align="center">
 	<h1>
 		<p class="text-aqua">TAQUERIA EL PAPA”</p>

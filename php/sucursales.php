@@ -19,7 +19,25 @@
   
 
 
-
+ <section class="bg-red" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <h1> <class="section-heading">CONTACTANOS</h1>
+                    <hr class="light">
+                    <h3><p class="text-faded">¡ESTAMOS PARA SERVIRLE!</p></h3>
+                    <br>
+                    <br>
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 <section class="invoice">
       <!-- title row -->
       <div class="row">
@@ -37,7 +55,7 @@
 
       <!-- Table row -->
       <div class="row">
-        <div class="col-xs-12 table-responsive">
+        <div class="col-xs-12 table-responsive ">
           <table class="table table-striped">
             <thead>
             <tr>
@@ -83,6 +101,8 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+      </section>
+    
 
 <?php include '../html/import_js.html' ?>
 </body>
