@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
  	<meta charset="utf-8">
@@ -101,6 +101,11 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+      </section>
+      <section>
+      <div align="center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7588.493288961895!2d-92.90340216400148!3d18.013753654229188!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1480137899828" width="1200" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
       </section>
     
 

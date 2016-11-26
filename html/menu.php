@@ -1,9 +1,16 @@
 <?php 
 $x = $_GET['x'];
-$id=$_GET['id'];
+//$id=$_GET['id'];
 if ($x == null){
   $x=10;
 }
+$id="0";
+$x1="";
+$x2="";
+$x3="";
+$x4="";
+$x5="";
+$x6="";
 switch ($x) {
   case 1:
     $x1= 'class="active"';
