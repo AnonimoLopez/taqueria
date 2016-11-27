@@ -21,13 +21,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">Iniciar tu sesión</p>
 
-    <form action="#" method="post">
+    <form action="login_bd.php" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="text" class="form-control" name="usuario" placeholder="usuario" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -38,9 +38,7 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <a href="#">Recuperar su password</a><br>
-    <a href="#" class="text-center">Registrar</a>
+    <a href="registrar.php?x=6&z=0" class="text-center">Registrar</a>
 
   </div>
   <!-- /.login-box-body -->
