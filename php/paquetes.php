@@ -114,7 +114,7 @@ if (phpversion()>6){
     $resul = mysqli_query($link, $sql);
 $i=1; 
 $l=1;
-$p=3;
+$p=2;
 $z1='';
     while($row=mysqli_fetch_row($resul)){
 
@@ -162,8 +162,8 @@ $z1='';
           if ($i==$p) $z1.= '</div>';
           
           if ($i==$p) {
-            $l+=3;
-            $p+=3;
+            $l+=2;
+            $p+=2;
           }
 
        
