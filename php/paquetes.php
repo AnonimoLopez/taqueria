@@ -99,7 +99,70 @@ $z1='';
 
 
 }else{
- print 'Hola';
+ $sql="select titulo, descripcion, total, id_producto from producto where tipo=0";
+
+    $resul = mysql_query( $sql, $link);
+$i=1; 
+$l=1;
+$p=3;
+$z1='';
+    while($row=mysql_fetch_row($resul)){
+
+      if ($i==$l) $z1.='<div class="row">';
+
+               $z1.=' <div class="col-lg-4">
+                            <div class="panel panel-primary">
+                                
+                                <div class="panel-heading">
+                                    '.$row[0].'
+                                </div>
+
+                               <div class="panel-body">
+                                    
+                                    <div class="lockscreen-item-sm">
+                                    <ul>
+                                    <h3>
+                                        <li>'.$row[1].'</li>    
+                                    </h3>
+                                    <img src="../img/img1.jpg" alt="..." class="img-thumbnail">
+                                    </ul>
+                                    </div>
+                                </div>
+
+
+                              <div class="panel-footer">
+                                      <h1><p class="text-light-blue">COSTO: $'.$row[2].'</p><h1>
+                             ';
+                                 if ($tipo==0){
+                                      $z1.= '
+                                      <form action="pedidos_bd.php?clave_usuario='.$id.'&clave_pedido='.$row[3].'" method="post">
+                                       <input type="text" value="'.$row[3].'" name="clave_pedido"          class="form-control inputcentrado" disabled="disabled">
+                                           <input type="submit" name="boton" class="btn btn-block btn-danger btn-lg"        value="Pedir">
+                                       </form>
+                             </div>';
+                            $z1.='
+                                  </div>
+                   </div>';
+                          }else{
+                        $z1.= ' 
+                             </div>
+                            </div>
+                   </div>';
+                          }
+          if ($i==$p) $z1.= '</div>';
+          
+          if ($i==$p) {
+            $l+=3;
+            $p+=3;
+          }
+
+       
+         $i=$i+1;
+
+              
+    }
+    if ($p>$i)$z1.= '</div>';
+
 }
  print $z1;
 print '<div class="alert alert-info">
@@ -177,7 +240,70 @@ $z1='';
 
 
 }else{
- print 'Hola';
+ $sql="select titulo, descripcion, total, id_producto from producto where tipo=1";
+
+    $resul = mysql_query($sql, $link);
+$i=1; 
+$l=1;
+$p=2;
+$z1='';
+    while($row=mysql_fetch_row($resul)){
+
+      if ($i==$l) $z1.='<div class="row">';
+
+               $z1.=' <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                
+                                <div class="panel-heading">
+                                    '.$row[0].'
+                                </div>
+
+                               <div class="panel-body">
+                                    
+                                    <div class="lockscreen-item-sm">
+                                    <ul>
+                                    <h3>
+                                        <li>'.$row[1].'</li>    
+                                    </h3>
+                                    <img src="../img/img1.jpg" alt="..." class="img-thumbnail">
+                                    </ul>
+                                    </div>
+                                </div>
+
+
+                              <div class="panel-footer">
+                                      <h1><p class="text-light-blue">COSTO: $'.$row[2].'</p><h1>
+                             ';
+                                 if ($tipo==0){
+                                      $z1.= '
+                                      <form action="pedidos_bd.php?clave_usuario='.$id.'&clave_pedido='.$row[3].'" method="post">
+                                       <input type="text" value="'.$row[3].'" name="clave_pedido"          class="form-control inputcentrado" disabled="disabled">
+                                           <input type="submit" name="boton" class="btn btn-block btn-danger btn-lg"        value="Pedir">
+                                       </form>
+                             </div>';
+                            $z1.='
+                                  </div>
+                   </div>';
+                          }else{
+                        $z1.= ' 
+                             </div>
+                            </div>
+                   </div>';
+                          }
+          if ($i==$p) $z1.= '</div>';
+          
+          if ($i==$p) {
+            $l+=2;
+            $p+=2;
+          }
+
+       
+         $i=$i+1;
+
+              
+    }
+    if ($p>$i)$z1.= '</div>';
+
 }
  print $z1;
  

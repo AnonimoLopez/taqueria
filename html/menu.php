@@ -63,6 +63,16 @@ while ($row=mysqli_fetch_row($ejec)) {
 }
 }else{
 
+  if ($id>0){
+$sql="select usuario, tipo from usuario where id_usuario=".$id;
+$ejec=mysql_query($sql, $link);
+while ($row=mysql_fetch_row($ejec)) {
+  $nombre=$row[0];
+  $tipo=$row[1];
+}
+
+}
+
 }
 
 
