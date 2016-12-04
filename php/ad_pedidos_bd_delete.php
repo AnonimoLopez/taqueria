@@ -9,7 +9,7 @@ print 'hola'.$clave_pedido;
 print 'hola2'.$clave_usuario;
 
 
-$sql="insert into pedido (id_persona, id_producto, fecha, estatus) values (".$clave_usuario.", ".$clave_pedido.", now(), 3)";
+$sql="delete from producto where id_producto=".$clave_pedido;
 
 print $sql;
 
@@ -17,5 +17,5 @@ $ejec=mysqli_query($link, $sql);
 
 
 
-header("location: pedidos.php?x=7&id=".$clave_usuario."");
+header("location: paquetes.php?x=2&id=".$clave_usuario."");
 ?>

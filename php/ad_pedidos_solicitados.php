@@ -21,11 +21,23 @@
      pr.total as 'precio', 
      e.descripcion as 'tipo',
      p.fecha,
-     p.estatus
+     p.estatus,
+     p.id_persona
    from pedido as p, producto as pr, tipo_estatus as e
-   where p.id_producto=pr.id_producto and p.estatus=e.id_tipo_estatus and p.id_persona=".$id; 
+   where p.id_producto=pr.id_producto and p.estatus=e.id_tipo_estatus
+   order by p.fecha Desc"; 
    print $sql;
  $ejec=mysqli_query($link, $sql);
+
+$sql_2 = "select * from tipo_estatus where id_tipo_estatus<3";
+$ejec_2 = mysqli_query($link, $sql_2);
+$mm = "";
+while($row=mysqli_fetch_row($ejec_2)){
+$mm.=" <option value='".$row[0]."'>".$row[1]."</option>";
+}
+
+
+
 
 $mostrar = "";
  while($row=mysqli_fetch_row($ejec)){
@@ -37,6 +49,9 @@ $mostrar = "";
  	<td>
  	".$row[1]."
  	</td>
+    <td>
+    ".$row[7]."
+    </td>
  	<td>
  	".$row[2]."
  	</td>
@@ -44,42 +59,31 @@ $mostrar = "";
  	".$row[3]."
  	</td>
  	<td>
- 	".$row[4]."
- 	</td>
+    <div align='center'>
+ 	<h3 class='btn-warning' >".$row[4]."</h3>
+ 	</div>
+    </td>
  	<td>
  	".$row[5]."
  	</td>
+     
+    <td>
+       <form action='ad_pedidos_solicitados_bd.php?id=".$row[0]."&id_user=".$id."' method='post'>
+    <div class='form-group' >
+                  <select class='form-control' name='tipo_estatus'>
+                   ".$mm."
+                  </select>
+                </div>
+    </td>
+    <td>
+   
+        <input name='boton' class='btn btn-block btn-success btn-lg' value='Guardar' type='submit'>
+        </form>
+    </td>
+    
  	";
 
- 	$fecha=$row[5];
-    $segundos=strtotime($fecha) - strtotime('now');
-    $diferencia_dias=intval($segundos/60/60/24);
-    
-    if ($diferencia_dias<1 && $row[6]==3){
-    date_default_timezone_set('America/Mexico_City');
-   
-    $date = date_create($row[5]);
-    $date=date_format($date, 'H:i');
-    
-    $date2 = date_create(date('m/d/Y g:ia'));
-    $date2=date_format($date2, 'h:i');
- 
-    $dif=date("i", strtotime("00:00:00") + strtotime($date2) -strtotime($date));
-     
-    if ($dif<6){
-    	$mostrar.= "
-    	<td>
-    	<form action='pedidos_bd_2.php?id=".$row[0]."&id_user=".$id."' method='post'>
-    	<input name='boton' class='btn btn-block btn-danger btn-lg' value='Cancelar' type='submit'>
-    	</form>
-    	</td>
-
-    	";
-    }else $mostrar.= "<td></td>";
-	
-    }else{
-    	$mostrar.= "<td></td>";
-    }
+ 	
      $mostrar.="</tr>";
  }
      
@@ -88,20 +92,26 @@ $mostrar = "";
                         <div class="panel-heading">
                             Kitchen Sink
                         </div>
+                        <div align="center">
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
+                                    
                                         <tr>
                                             <th>No. pedido</th>
                                             <th>Clave del paquete</th>
+                                            <th>Clave del usuario</th>
                                             <th>Descripción</th>
                                             <th>Total</th>
-                                            <th>Estatus</th>
+                                            <th>ESTATUS</th>
                                             <th>Hora</th>
                                             <th>Acciones</th>
+                                            <th>Guardar</th>
+                                    
                                         </tr>
+                                    
                                     </thead>
                                     <tbody>
                                         '.$mostrar.'
@@ -109,6 +119,7 @@ $mostrar = "";
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
+                        </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>

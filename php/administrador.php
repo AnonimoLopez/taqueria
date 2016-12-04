@@ -47,7 +47,7 @@ print '<div class="col-lg-12 col-xs-12">
 ?>
 
 <body class="">
-<form action="administrador_bd.php?id=<?php print $id ?>" method="post">
+<form enctype="multipart/form-data" action="administrador_bd.php?id=<?php print $id ?>" method="post">
 
 
 <div class="login-box bg-red">
@@ -75,6 +75,14 @@ print '<div class="col-lg-12 col-xs-12">
      </span>
     	<input class="form-control" name="precio"  placeholder="PRECIO" type="number" required>
     </div>
+</div>
+
+<div>
+    <!-- MAX_FILE_SIZE debe preceder al campo de entrada del fichero -->
+
+    <!-- El nombre del elemento de entrada determina el nombre en el array $_FILES -->
+    Enviar este fichero:
+   <input type="file" name="archivo" required>
 </div>
 
 <div class=" col-lg-12">

@@ -18,8 +18,13 @@ $x5="";
 $x6="";
 $x7="";
 $x8="";
+$x9="";
+$x10="";
+$x11="";
+
 $nombre="";
 $tipo="-1";
+
 switch ($x) {
   case 1:
     $x1= 'class="active"';
@@ -45,13 +50,22 @@ switch ($x) {
   case 8:
     $x8='class="active"';
     break;
+    case 9:
+    $x9='class="active"';
+    break;
+     case 10:
+    $x10='class="active"';
+    break;
+     case 11:
+    $x11='class="active"';
+    break;
   
   default:
     header('Location: ../php/inicio.php?x=1');  
     break;
 }
 
-if (phpversion()>6){
+
 if ($id>0){
 $sql="select usuario, tipo from usuario where id_usuario=".$id;
 $ejec=mysqli_query($link,$sql);
@@ -61,19 +75,8 @@ while ($row=mysqli_fetch_row($ejec)) {
 }
 
 }
-}else{
 
-  if ($id>0){
-$sql="select usuario, tipo from usuario where id_usuario=".$id;
-$ejec=mysql_query($sql, $link);
-while ($row=mysql_fetch_row($ejec)) {
-  $nombre=$row[0];
-  $tipo=$row[1];
-}
 
-}
-
-}
 
 
 ?>
@@ -106,7 +109,10 @@ while ($row=mysql_fetch_row($ejec)) {
       if ($tipo==0){
         print '<li '.$x7.'><a href="../php/pedidos.php?x=7&id='.$id.'">PEDIDOS</a></li>';   
       }else if ($tipo == 1){
-        print '<li '.$x8.'><a href="../php/administrador.php?z=0&x=8&id='.$id.'">Administrador</a></li>';
+        print '<li '.$x8.'><a href="../php/administrador.php?z=0&x=8&id='.$id.'">MENU</a></li>';
+        print '<li '.$x9.'><a href="../php/ad_usuarios.php?z=0&x=9&id='.$id.'">USUARIOS</a></li>';
+        print '<li '.$x10.'><a href="../php/ad_pedidos_solicitados.php?z=0&x=10&id='.$id.'">PEDIDOS SOLICITADOS</a></li>';
+        print '<li '.$x11.'><a href="../php/ad_cambios_contraseña.php?z=0&x=11&id='.$id.'">CAMBIOS DE CONTRASEÑA</a></li>';
       }
       ?>
  </ul>
@@ -136,7 +142,7 @@ while ($row=mysql_fetch_row($ejec)) {
       ';
      }else{
       print '
-          <li '.$x5.'><a href="../php/login.php?x=5&id=0">LOGIN</a></li>
+          <li '.$x5.'><a href="../php/login.php?pk=0&x=5&id=0">LOGIN</a></li>
           <li '.$x6.'><a href="../php/registrar.php?x=6&z=0&id=0">REGISTRAR</a></li>
           ';
      }?>

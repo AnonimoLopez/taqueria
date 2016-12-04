@@ -40,6 +40,20 @@ print '<div class="col-lg-12 col-xs-12">
            </div>
 </div>
 ';  
+}else if ($k==3){
+print '<div class="col-lg-12 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner" align="center">
+              <h1>EL USUARIO O CORREO EXISTE</h1>
+            </div>
+            <div class="icon">
+               <span class="glyphicon glyphicon-remove"></span>
+            </div>
+            <a href="#" class="small-box-footer">¡Vuelva a intentarlo!<i class="fa fa-arrow-circle-right"></i></a>
+           </div>
+</div>
+';  
 }
 
 ?>

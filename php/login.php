@@ -10,7 +10,24 @@
 
 </head>
 
-<?php include '../html/menu.php' ?>
+<?php include '../html/menu.php';
+$error=$_GET['pk'];
+if ($error==1){
+print '<div class="col-lg-12 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner" align="center">
+              <h1>EL USUARIO O CONTRASEÑA INCORRECTO</h1>
+            </div>
+            <div class="icon">
+               <span class="glyphicon glyphicon-remove"></span>
+            </div>
+            <a href="#" class="small-box-footer">¡Vuelva a intentarlo!<i class="fa fa-arrow-circle-right"></i></a>
+           </div>
+</div>';
+}
+
+ ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -38,8 +55,8 @@
         <!-- /.col -->
       </div>
     </form>
-    <a href="registrar.php?x=6&z=0" class="text-center">Registrar</a>
-
+    <a href="registrar.php?x=6&z=0" class="text-center">Registrar</a><br>
+    <a href="password_change.php?pk=0&z=0&x=11&id=0" class="text-center">Recuperar contraseña</a>
   </div>
   <!-- /.login-box-body -->
 </div>

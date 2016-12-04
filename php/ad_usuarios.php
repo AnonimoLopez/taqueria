@@ -14,16 +14,8 @@
 <?php
  include 'conexion.php';
 
- $sql="select 
-     p.id_pedido as 'clave_producto',
-     p.id_producto,
-     pr.descripcion as 'Paquete', 
-     pr.total as 'precio', 
-     e.descripcion as 'tipo',
-     p.fecha,
-     p.estatus
-   from pedido as p, producto as pr, tipo_estatus as e
-   where p.id_producto=pr.id_producto and p.estatus=e.id_tipo_estatus and p.id_persona=".$id; 
+ $sql="select *
+   from usuario as u, personas as p where p.id_persona=u.id_usuario and id_usuario!=".$id; 
    print $sql;
  $ejec=mysqli_query($link, $sql);
 
@@ -43,43 +35,19 @@ $mostrar = "";
  	<td>
  	".$row[3]."
  	</td>
- 	<td>
- 	".$row[4]."
- 	</td>
- 	<td>
- 	".$row[5]."
- 	</td>
- 	";
+    <td>
+    ".$row[7]."
+    </td>
+    <td>
+    ".$row[8]."
+    </td>
+    <td>
+    <form action='ad_usuarios_bd.php?id=".$row[0]."&id_user=".$id."' method='post'>
+        <input name='boton' class='btn btn-block btn-danger btn-lg' value='ELIMINAR' type='submit'>
+        </form>
+    </td>
+    ";
 
- 	$fecha=$row[5];
-    $segundos=strtotime($fecha) - strtotime('now');
-    $diferencia_dias=intval($segundos/60/60/24);
-    
-    if ($diferencia_dias<1 && $row[6]==3){
-    date_default_timezone_set('America/Mexico_City');
-   
-    $date = date_create($row[5]);
-    $date=date_format($date, 'H:i');
-    
-    $date2 = date_create(date('m/d/Y g:ia'));
-    $date2=date_format($date2, 'h:i');
- 
-    $dif=date("i", strtotime("00:00:00") + strtotime($date2) -strtotime($date));
-     
-    if ($dif<6){
-    	$mostrar.= "
-    	<td>
-    	<form action='pedidos_bd_2.php?id=".$row[0]."&id_user=".$id."' method='post'>
-    	<input name='boton' class='btn btn-block btn-danger btn-lg' value='Cancelar' type='submit'>
-    	</form>
-    	</td>
-
-    	";
-    }else $mostrar.= "<td></td>";
-	
-    }else{
-    	$mostrar.= "<td></td>";
-    }
      $mostrar.="</tr>";
  }
      
@@ -94,12 +62,12 @@ $mostrar = "";
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>No. pedido</th>
-                                            <th>Clave del paquete</th>
-                                            <th>Descripción</th>
-                                            <th>Total</th>
-                                            <th>Estatus</th>
-                                            <th>Hora</th>
+                                            <th>Clave del usuario</th>
+                                            <th>Usuario</th>
+                                            <th>Contraseña</th>
+                                            <th>Tipo</th>
+                                            <th>Telefono</th>
+                                            <th>Correo</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
