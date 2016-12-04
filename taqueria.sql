@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2016 at 03:20 AM
+-- Generation Time: Dec 04, 2016 at 06:48 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -23,6 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `password_change`
+--
+
+CREATE TABLE `password_change` (
+  `id_password_change` int(11) NOT NULL,
+  `usuario` varchar(100) DEFAULT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `status` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pedido`
 --
 
@@ -33,12 +47,6 @@ CREATE TABLE `pedido` (
   `fecha` datetime NOT NULL,
   `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `pedido`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -54,10 +62,6 @@ CREATE TABLE `personas` (
   `correo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `personas`
---
-
 -- --------------------------------------------------------
 
 --
@@ -72,11 +76,6 @@ CREATE TABLE `producto` (
   `tipo` varchar(100) NOT NULL,
   `titulo` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `producto`
---
-
 
 -- --------------------------------------------------------
 
@@ -112,13 +111,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuario`
---
-
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `password_change`
+--
+ALTER TABLE `password_change`
+  ADD PRIMARY KEY (`id_password_change`);
 
 --
 -- Indexes for table `pedido`
@@ -155,20 +155,25 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `password_change`
+--
+ALTER TABLE `password_change`
+  MODIFY `id_password_change` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `tipo_estatus`
 --
@@ -178,7 +183,7 @@ ALTER TABLE `tipo_estatus`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
